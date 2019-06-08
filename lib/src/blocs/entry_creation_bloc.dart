@@ -18,4 +18,11 @@ class EntryCreationBloc extends Object with Validators{
     //TODO: encrypt file, save in db(autoid, title, pointer to enc(file))
     print("Validation passed!");
   }
+
+  dispose(){
+    _entryTitleController.close();
+    _entryBodyController.close();
+  }
+
+
 }
