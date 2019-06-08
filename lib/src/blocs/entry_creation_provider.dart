@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'entry_creation_bloc.dart';
+export 'entry_creation_bloc.dart';
 
 class EntryCreationProvider extends InheritedWidget{
   final bloc = EntryCreationBloc();
