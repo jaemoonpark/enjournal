@@ -10,12 +10,14 @@ class EntryCreationBloc extends Object with Validators{
   Function(String) get changeBody => _entryBodyController.sink.add;
 
   Stream<String> get title => _entryTitleController.stream.transform(validateLength);
-  // Stream<String> get body => _entryBodyController.stream.transform(validateLength);
+  Stream<String> get body => _entryBodyController.stream;
   // Stream<bool> get saveValid => Observable.combineLatest2(title, body, (title, body) => true);
 
 
   save(){
     //TODO: encrypt file, save in db(autoid, title, pointer to enc(file))
+    print(_entryTitleController.value);
+    print(_entryBodyController.value);
     print("Validation passed!");
   }
 

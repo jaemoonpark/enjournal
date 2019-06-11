@@ -51,28 +51,21 @@ class EntryCreate extends StatelessWidget{
 
   Widget widgetEntryBody(EntryCreationBloc entryCreationBloc){
     
-    // return StreamBuilder(
-    //   stream: entryCreationBloc.body,
-    //   builder: (context, snapshot){
-    //     return TextField(
-    //       onChanged: entryCreationBloc.changeBody,
-    //       maxLines: null,
-    //       decoration: InputDecoration(
-    //         border: InputBorder.none,
-    //         hintText: 'Write here!',
-    //         errorText: snapshot.error,
-    //       ),
-    //     );
-    //   }
-
-    // );
-    return TextField(
+    return StreamBuilder(
+      stream: entryCreationBloc.body,
+      builder: (context, snapshot){
+        return TextField(
+          expands: true,
           onChanged: entryCreationBloc.changeBody,
           maxLines: null,
           decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: 'Write here!'
+            hintText: 'Write here!',
+            errorText: snapshot.error,
           ),
+        );
+      }
+
     );
     
   }
