@@ -21,7 +21,7 @@ class EntryCreate extends StatelessWidget{
 
   Widget widgetAppBarSaveBtn(EntryCreationBloc entryCreationBloc){
     return StreamBuilder(
-      stream: entryCreationBloc.saveValid,
+      stream: entryCreationBloc.title,
       builder: (context, snapshot){
         return IconButton(
         icon: Icon(Icons.save),
@@ -50,20 +50,29 @@ class EntryCreate extends StatelessWidget{
   }
 
   Widget widgetEntryBody(EntryCreationBloc entryCreationBloc){
-    return StreamBuilder(
-      stream: entryCreationBloc.body,
-      builder: (context, snapshot){
-        return TextField(
+    
+    // return StreamBuilder(
+    //   stream: entryCreationBloc.body,
+    //   builder: (context, snapshot){
+    //     return TextField(
+    //       onChanged: entryCreationBloc.changeBody,
+    //       maxLines: null,
+    //       decoration: InputDecoration(
+    //         border: InputBorder.none,
+    //         hintText: 'Write here!',
+    //         errorText: snapshot.error,
+    //       ),
+    //     );
+    //   }
+
+    // );
+    return TextField(
           onChanged: entryCreationBloc.changeBody,
           maxLines: null,
           decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: 'Write here!',
-            errorText: snapshot.error,
+            hintText: 'Write here!'
           ),
-        );
-      }
-
     );
     
   }
